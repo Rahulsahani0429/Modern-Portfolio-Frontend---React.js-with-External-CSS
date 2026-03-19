@@ -1,0 +1,15 @@
+:root {
+    --primary-color: #0d0d1e;
+    --secondary-color: #111126;
+    --accent-color: #7c4dff;
+    --accent-glow: rgba(124, 77, 255, 0.4);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0cc;
+    --white: #ffffff;
+    --shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.9);
+    --glass-bg: rgba(17, 17, 38, 0.8);
+    --glass-border: rgba(124, 77, 255, 0.2);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --gradient-bg: radial-gradient(circle at 50% 50%, #1a1a3a 0%, #0d0d1e 100%);
+    --card-hover-bg: rgba(26, 26, 54, 0.9);
+}

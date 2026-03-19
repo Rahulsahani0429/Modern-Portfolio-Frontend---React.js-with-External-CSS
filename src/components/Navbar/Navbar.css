@@ -1,0 +1,542 @@
+/* ============================================================
+   NAVBAR — CSS Variables (local overrides)
+   ============================================================ */
+:root {
+    --nav-height: 80px;
+    --nav-height-scrolled: 64px;
+    --drawer-width: 300px;
+    --ctrl-size: 40px;
+    /* shared height for CV btn + hamburger */
+    --ctrl-radius: 10px;
+    --ctrl-gap: 10px;
+}
+
+.btn-outline {
+    text-decoration: none;
+}
+
+/* ============================================================
+   BASE NAVBAR
+   ============================================================ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    z-index: 900;
+    transition: height 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    background: transparent;
+}
+
+.navbar.scrolled {
+    height: var(--nav-height-scrolled);
+    background: rgba(13, 13, 30, 0.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(124, 77, 255, 0.15);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+.logo {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.04em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.logo:hover {
+    opacity: 0.85;
+}
+
+.logo-accent {
+    color: var(--accent-color);
+}
+
+/* ============================================================
+   DESKTOP NAV LINKS
+   ============================================================ */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 6px 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+    position: relative;
+    line-height: 1.4;
+}
+
+.nav-link-btn:hover,
+.nav-link-btn.active {
+    color: var(--white);
+}
+
+/* Animated underline */
+.nav-underline {
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent-color);
+    width: 0;
+    transition: width 0.25s ease;
+    margin-top: 3px;
+}
+
+.nav-link-btn:hover .nav-underline,
+.nav-link-btn.active .nav-underline {
+    width: 100%;
+}
+
+/* ============================================================
+   NAV RIGHT — shared wrapper for all right-side controls
+   ============================================================ */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--ctrl-gap);
+    flex-shrink: 0;
+}
+
+/* ---- Desktop CV button ---- */
+.desktop-cv {
+    font-size: 0.83rem;
+    padding: 7px 16px;
+    white-space: nowrap;
+    transition: var(--transition);
+    height: var(--ctrl-size);
+    display: inline-flex;
+    align-items: center;
+}
+
+.desktop-cv:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(124, 77, 255, 0.08);
+}
+
+
+/* ============================================================
+   HAMBURGER BUTTON
+   ============================================================ */
+.hamburger {
+    display: none;
+    /* shown only in mobile media query */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    width: var(--ctrl-size);
+    height: var(--ctrl-size);
+    background: rgba(124, 77, 255, 0.1);
+    border: 1px solid rgba(124, 77, 255, 0.3);
+    border-radius: var(--ctrl-radius);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s ease, border-color 0.25s ease,
+        box-shadow 0.25s ease, transform 0.2s ease;
+    flex-shrink: 0;
+    z-index: 910;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger:hover {
+    background: rgba(124, 77, 255, 0.22);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 14px rgba(124, 77, 255, 0.3);
+}
+
+.hamburger:active {
+    transform: scale(0.93);
+}
+
+.ham-line {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+        margin 0.3s ease-in-out;
+}
+
+.ham-line.top {
+    margin-bottom: 5px;
+}
+
+.ham-line.bottom {
+    margin-top: 5px;
+}
+
+/* X state */
+.hamburger.open .ham-line.top {
+    transform: translateY(7px) rotate(45deg);
+    margin-bottom: 0;
+}
+
+.hamburger.open .ham-line.mid {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.open .ham-line.bottom {
+    transform: translateY(-7px) rotate(-45deg);
+    margin-top: 0;
+}
+
+/* ============================================================
+   DARK OVERLAY (click-outside to close)
+   ============================================================ */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 5, 18, 0.7);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 950;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ============================================================
+   MOBILE DRAWER
+   ============================================================ */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(var(--drawer-width), 90vw);
+    height: 100dvh;
+    /* fallback for browsers without dvh */
+    height: 100vh;
+    background: linear-gradient(160deg,
+            #0e1829 0%,
+            #0d0d1e 45%,
+            #140d2b 100%);
+    border-left: 1px solid rgba(124, 77, 255, 0.18);
+    box-shadow: -12px 0 48px rgba(0, 0, 0, 0.65);
+    z-index: 960;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.mobile-drawer.open {
+    transform: translateX(0);
+}
+
+/* ---- Drawer Header ---- */
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.4rem;
+    flex-shrink: 0;
+}
+
+
+
+.drawer-logo {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.04em;
+}
+
+.drawer-close {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(124, 77, 255, 0.12);
+    border: 1px solid rgba(124, 77, 255, 0.25);
+    border-radius: 8px;
+    color: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.25s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.drawer-close:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+/* ---- Divider ---- */
+.drawer-divider {
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(124, 77, 255, 0.35) 30%,
+            rgba(124, 77, 255, 0.35) 70%,
+            transparent);
+    margin: 0 1.4rem;
+    flex-shrink: 0;
+}
+
+/* ---- Drawer Nav Links ---- */
+.drawer-links {
+    list-style: none;
+    padding: 1rem 0;
+    flex: 1;
+}
+
+.drawer-item {
+    /* stagger slide-in animation on open */
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.mobile-drawer.open .drawer-item {
+    animation: slideInItem 0.35s ease-out forwards;
+    animation-delay: var(--delay, 0ms);
+}
+
+@keyframes slideInItem {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.drawer-link {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    padding: 0.85rem 1.4rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.02rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s ease, background 0.2s ease, padding-left 0.2s ease;
+    position: relative;
+}
+
+.drawer-link-indicator {
+    display: block;
+    width: 3px;
+    height: 30px;
+    border-radius: 2px;
+    background: var(--accent-color);
+    margin-right: 1rem;
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.drawer-link:hover .drawer-link-indicator,
+.drawer-link.active .drawer-link-indicator {
+    transform: scaleY(1);
+}
+
+.drawer-link-label {
+    flex: 1;
+}
+
+.drawer-arrow {
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.drawer-link:hover,
+.drawer-link.active {
+    color: var(--white);
+    background: rgba(124, 77, 255, 0.07);
+}
+
+.drawer-link:hover .drawer-arrow,
+.drawer-link.active .drawer-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.drawer-link.active {
+    color: var(--white);
+}
+
+/* ---- Drawer Footer CTAs ---- */
+.drawer-footer {
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    border-top: 1px solid rgba(124, 77, 255, 0.12);
+    flex-shrink: 0;
+    background: rgba(124, 77, 255, 0.04);
+}
+
+.drawer-hire,
+.drawer-cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.drawer-hire {
+    background: var(--accent-color);
+    color: var(--white);
+    border: none;
+    box-shadow: 0 4px 20px rgba(124, 77, 255, 0.35);
+}
+
+.drawer-hire:hover {
+    background: #6a3de8;
+    box-shadow: 0 6px 28px rgba(124, 77, 255, 0.55);
+    transform: translateY(-1px);
+}
+
+.drawer-cv {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(124, 77, 255, 0.3);
+}
+
+.drawer-cv:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(124, 77, 255, 0.08);
+}
+
+/* ============================================================
+   DESKTOP — hide mobile controls above 992px (safety)
+   ============================================================ */
+@media (min-width: 993px) {
+
+    .hamburger,
+    .mobile-cv-btn,
+    .mobile-drawer,
+    .nav-overlay {
+        display: none !important;
+    }
+}
+
+/* ============================================================
+   TABLET / MOBILE  ≤ 992px
+   Hide desktop nav links; show hamburger + mobile CV button
+   ============================================================ */
+@media (max-width: 992px) {
+
+    /* Hide desktop-only elements */
+    .nav-links,
+    .desktop-cv {
+        display: none;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* ============================================================
+   TABLET MID  ≤ 768px
+   Tighten navbar height, reduce gaps
+   ============================================================ */
+@media (max-width: 768px) {
+    :root {
+        --nav-height: 68px;
+        --nav-height-scrolled: 58px;
+        --ctrl-size: 40px;
+        --ctrl-gap: 8px;
+    }
+
+    .logo {
+        font-size: 1.35rem;
+    }
+}
+
+/* ============================================================
+   SMALL MOBILE  ≤ 480px
+   Slightly smaller controls
+   ============================================================ */
+@media (max-width: 480px) {
+    :root {
+        --nav-height: 62px;
+        --nav-height-scrolled: 54px;
+        --ctrl-size: 38px;
+        --ctrl-gap: 7px;
+    }
+
+    .logo,
+    .drawer-logo {
+        font-size: 1.25rem;
+    }
+}
+
+/* ============================================================
+   EXTRA SMALL ≤ 360px
+   ============================================================ */
+@media (max-width: 360px) {
+    :root {
+        --ctrl-size: 36px;
+        --ctrl-gap: 6px;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+}

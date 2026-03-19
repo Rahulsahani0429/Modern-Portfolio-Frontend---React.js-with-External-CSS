@@ -1,0 +1,146 @@
+.experience-section {
+    position: relative;
+    padding: 100px 0;
+    background-image: linear-gradient(rgba(13, 13, 30, 0.5), rgba(13, 13, 30, 0.5)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    color: var(--white);
+}
+
+.experience-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(13, 13, 30, 0.95) 0%, rgba(13, 13, 30, 0.7) 100%);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+}
+
+.experience-relative {
+    position: relative;
+    z-index: 2;
+}
+
+.experience-section .section-title {
+    text-align: center;
+    color: var(--white);
+}
+
+.exp-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 2rem 0;
+}
+
+.exp-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--glass-border);
+}
+
+.exp-timeline-item {
+    margin-left: 60px;
+    margin-bottom: 3rem;
+    position: relative;
+    padding: 2rem;
+    transition: var(--transition);
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+}
+
+.exp-timeline-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.exp-timeline-dot {
+    position: absolute;
+    left: -48px;
+    top: 32px;
+    width: 16px;
+    height: 16px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent-color);
+    z-index: 3;
+}
+
+.exp-timeline-date {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.exp-timeline-item h3 {
+    color: var(--white);
+    margin-bottom: 0.3rem;
+    font-size: 1.4rem;
+}
+
+.exp-timeline-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.exp-badge {
+    display: inline-block;
+    background: rgba(124, 77, 255, 0.15);
+    color: var(--accent-color);
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 1.2rem;
+    border: 1px solid var(--glass-border);
+}
+
+.no-data {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    padding: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .experience-section {
+        padding: 60px 0;
+    }
+
+    .exp-timeline-item {
+        padding: 1.5rem;
+        margin-left: 50px;
+    }
+
+    .exp-timeline-dot {
+        left: -38px;
+    }
+}
+
+@media (max-width: 480px) {
+    .exp-timeline-item {
+        margin-left: 40px;
+        padding: 1.2rem;
+    }
+
+    .exp-timeline-dot {
+        left: -28px;
+        width: 12px;
+        height: 12px;
+        top: 25px;
+    }
+}
