@@ -109,7 +109,7 @@ const About = ({ profile }) => {
                     <div className="contact-details">
                         <div className="contact-item">
                             <i className="fas fa-envelope"></i>
-                            <span>{profile?.email || "rahulsahani3348@gmail.com"}</span>
+                            <span>{profile?.email || "rahulcse3212@gmail.com"}</span>
                         </div>
                         <div className="contact-item">
                             <i className="fas fa-phone-alt"></i>

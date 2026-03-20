@@ -27,6 +27,7 @@ const Skills = ({ skills }) => {
             case 'git': return <SiGit style={{ color: '#F05032' }} />;
             case 'github': return <SiGithub style={{ color: '#ffffff' }} />;
             case 'postman': return <SiPostman style={{ color: '#FF6C37' }} />;
+            case 'bootstrap': return <SiBootstrap style={{ color: '#7952B3' }} />;
             case 'vscode': return <VscCode style={{ color: '#007ACC' }} />;
             default: return <SiJavascript style={{ color: '#F7DF1E' }} />;
         }

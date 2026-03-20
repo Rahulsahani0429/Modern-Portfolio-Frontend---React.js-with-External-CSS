@@ -24,7 +24,7 @@ const Footer = () => {
                         <h3 className="footer-name">RAHUL KUMAR SAHANI</h3>
                         <p className="footer-contact-info">
                             Jaipur, Rajasthan, India<br />
-                            <a href="mailto:rahulsahani3348@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }} className="footer-email-link">rahulsahani3348@gmail.com</a>
+                            <a href="mailto:rahulcse3212@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }} className="footer-email-link">rahulcse3212@gmail.com</a>
                         </p>
                         <a href="\src\assets\Resume\RahulSahani.pdf" target="_blank" rel="noopener noreferrer" className="footer-resume-link" download>
                             DOWNLOAD MY RESUME / CV
@@ -67,7 +67,7 @@ const Footer = () => {
                         <div className="footer-socials">
                             <a href="https://github.com/Rahulsahani0429" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
                             <a href="https://www.linkedin.com/in/rahul-kumar-sahani-4729b8274/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-                            <a href="mailto:rahulsahani3348@gmail.com"><FaEnvelope /></a>
+                            <a href="mailto:rahulcse3212@gmail.com"><FaEnvelope /></a>
                         </div>
                     </div>
                 </div>

@@ -18,20 +18,23 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [profRes, projRes, skillRes, expRes, eduRes] = await Promise.all([
+                const results = await Promise.allSettled([
                     getProfile(),
                     getProjects(),
                     getSkills(),
                     getExperience(),
                     getEducation()
                 ]);
-                setProfile(profRes.data);
-                setProjects(projRes.data);
-                setSkills(skillRes.data);
-                setExperience(expRes.data);
-                setEducation(eduRes.data);
+
+                const getValue = (res, defaultVal) => res.status === 'fulfilled' ? res.value.data : defaultVal;
+
+                setProfile(getValue(results[0], null));
+                setProjects(getValue(results[1], []));
+                setSkills(getValue(results[2], []));
+                setExperience(getValue(results[3], []));
+                setEducation(getValue(results[4], []));
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('Error in data fetching layer:', error);
             } finally {
                 setLoading(false);
             }
