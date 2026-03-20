@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import './Hero.css';
-
+import profileImg from "../../assets/projects/IMG_20250324_084038-removebg-preview (2).png";
 const Hero = ({ profile }) => {
     // Typewriter state
     const [roleText, setRoleText] = useState('');
@@ -126,8 +126,13 @@ const Hero = ({ profile }) => {
                     >
                         <div className="spotlight"></div>
                         <div className="neon-ring"></div>
-                        <img
+                        {/* <img
                             src="/src/assets/projects/IMG_20250324_084038-removebg-preview (2).png"
+                            alt={profile?.name || "Rahul Kumar Sahani"}
+                            className="profile-img-v2"
+                        /> */}
+                        <img
+                            src={profileImg}
                             alt={profile?.name || "Rahul Kumar Sahani"}
                             className="profile-img-v2"
                         />
