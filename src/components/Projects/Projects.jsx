@@ -1,32 +1,11 @@
 import React from 'react';
 import './Projects.css';
-import projectScreenshot from '../../assets/projects/Screenshot 2025-04-26 231129.png';
+import { projectsData } from '../../data/portfolioData';
 
-const Projects = ({ projects }) => {
-    // Fallback data mapping to the reference image if prop is empty
-    const displayProjects = (projects && projects.length > 0) ? projects : [
-        {
-            _id: '1',
-            title: 'GitHub Profile Detective',
-            description: 'A powerful and user-friendly React.js application designed to uncover and showcase detailed GitHub profiles.',
-            techStack: ['HTML', 'CSS', 'JavaScript', 'React JS', 'API'],
-            image: projectScreenshot
-        },
-        {
-            _id: '2',
-            title: 'CS Prep',
-            description: 'A full-stack quiz-based platform designed for GATE/UGC NET students to practice previous year questions.',
-            techStack: ['React JS', 'Node.js', 'MongoDB', 'Express', 'HTML', 'CSS', 'JavaScript'],
-            image: projectScreenshot
-        },
-        {
-            _id: '3',
-            title: 'Movie Recommendation App',
-            description: 'A React-based web application that provides movie recommendations based on different criteria, such as genre.',
-            techStack: ['React JS', 'API', 'HTML', 'CSS', 'JavaScript'],
-            image: projectScreenshot
-        }
-    ];
+const Projects = () => {
+    // Use static data
+    const displayProjects = projectsData;
+
 
     return (
         <section id="projects" className="projects-section-v3">
@@ -52,6 +31,18 @@ const Projects = ({ projects }) => {
                                     {(project.techStack || []).map((tech, index) => (
                                         <span key={index} className="tech-tag-v3">{tech}</span>
                                     ))}
+                                </div>
+                                <div className="project-links">
+                                    {project.githubLink && (
+                                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn-project-link">
+                                            <i className="fab fa-github"></i> GitHub
+                                        </a>
+                                    )}
+                                    {project.liveLink && (
+                                        <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn-project-link primary">
+                                            <i className="fas fa-external-link-alt"></i> Live Demo
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </div>

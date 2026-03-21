@@ -154,4 +154,20 @@
     .skill-name {
         font-size: 0.9rem;
     }
+
+    .skills-header .section-title {
+        font-size: 2rem;
+    }
+
+    .skills-header .section-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .category-header {
+        font-size: 1.4rem;
+    }
+
+    .skill-card-v3 {
+        padding: 20px;
+    }
 }

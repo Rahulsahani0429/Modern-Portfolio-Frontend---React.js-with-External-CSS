@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './About.css';
-import { sendMessage } from '../../api/api';
 
 const About = ({ profile }) => {
     const [formData, setFormData] = useState({
@@ -21,7 +21,7 @@ const About = ({ profile }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
             setToastMessage('Please fill all fields.');
             setStatus('error');
@@ -38,22 +38,42 @@ const About = ({ profile }) => {
         setToastMessage('');
 
         try {
-            await sendMessage(formData);
+            const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+            const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+            // This log helps debug if variables are loaded correctly
+            console.log("EmailJS Params:", { serviceId, templateId, pbKey: publicKey ? 'Loaded' : 'Missing' });
+
+            await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message
+                },
+                {
+                    publicKey: publicKey
+                }
+            );
+
             setStatus('success');
             setToastMessage('Your message has been sent successfully.');
             setFormData({ name: '', email: '', message: '' });
-            
+
             // Clear toast after 5 seconds
             setTimeout(() => {
                 setStatus('idle');
                 setToastMessage('');
             }, 5000);
         } catch (error) {
-            const backendError = error.response?.data?.message || error.message;
-            console.error('Detailed Backend Error:', backendError);
-            
+            console.error("EmailJS Error Object:", error);
+            // This is the CRITICAL part for diagnosing 400 errors:
+            console.error("EmailJS Reject Reason:", error?.text || error?.message || "Check your IDs again");
+
             setStatus('error');
-            setToastMessage('Failed to send message. Please try again later.');
+            setToastMessage('Failed to send message. Please check your EmailJS configuration or try again later.');
         }
     };
 
@@ -149,19 +169,19 @@ const About = ({ profile }) => {
                                 required
                                 disabled={status === 'submitting'}
                             ></textarea>
-                            <button 
-                                type="submit" 
+                            <button
+                                type="submit"
                                 className="btn-primary full-width"
                                 disabled={status === 'submitting'}
                             >
                                 {status === 'submitting' ? 'Sending...' : 'Send Message'}
                             </button>
-                            
+
                             {/* Feedback Toast Message */}
                             {toastMessage && (
-                                <div style={{ 
-                                    marginTop: '15px', 
-                                    padding: '10px', 
+                                <div style={{
+                                    marginTop: '15px',
+                                    padding: '10px',
                                     borderRadius: '5px',
                                     textAlign: 'center',
                                     backgroundColor: status === 'success' ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)',
@@ -192,3 +212,4 @@ const About = ({ profile }) => {
 };
 
 export default About;
+

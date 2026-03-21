@@ -1,7 +1,8 @@
 import React from 'react';
 import './Education.css';
+import { educationData } from '../../data/portfolioData';
 
-const Education = ({ education }) => {
+const Education = () => {
     // We'll use a fallback library image since generation failed
     const libraryBg = "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2000&auto=format&fit=crop";
 
@@ -13,7 +14,7 @@ const Education = ({ education }) => {
                 </div>
 
                 <div className="education-grid-v3">
-                    {education.map((edu, index) => (
+                    {educationData.map((edu, index) => (
                         <div key={edu._id} className={`education-item-v3 ${index % 2 === 0 ? 'large' : 'small'}`}>
                             <div className="edu-bg-image" style={{ backgroundImage: `url(${libraryBg})` }}></div>
                             <div className="edu-content-glass">

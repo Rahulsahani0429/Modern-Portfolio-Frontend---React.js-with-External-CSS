@@ -8,8 +8,9 @@ import {
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import { VscCode } from 'react-icons/vsc';
+import { skillsData } from '../../data/portfolioData';
 
-const Skills = ({ skills }) => {
+const Skills = () => {
     // Utility to get icon component based on string
     const getIcon = (iconName) => {
         const iconLower = iconName.toLowerCase();
@@ -33,36 +34,14 @@ const Skills = ({ skills }) => {
         }
     };
 
-    // Group skills by category
-    const skillsByCategory = skills && skills.length > 0 ?
-        skills.reduce((acc, skill) => {
-            const cat = skill.category || 'Other';
-            if (!acc[cat]) acc[cat] = [];
-            acc[cat].push(skill);
-            return acc;
-        }, {}) :
-        null;
-
-    const displayCategories = skillsByCategory ?
-        Object.keys(skillsByCategory).map(cat => ({
-            title: cat,
-            skills: skillsByCategory[cat].map(s => ({
-                name: s.name,
-                icon: getIcon(s.icon)
-            }))
-        })) :
-        [
-            {
-                title: 'Frontend',
-                skills: [
-                    { name: 'HTML', icon: <SiHtml5 style={{ color: '#E34F26' }} /> },
-                    { name: 'CSS', icon: <SiCss3 style={{ color: '#1572B6' }} /> },
-                    { name: 'JavaScript', icon: <SiJavascript style={{ color: '#F7DF1E' }} /> },
-                    { name: 'React.js', icon: <SiReact style={{ color: '#61DAFB' }} /> },
-                ]
-            }
-            // ... truncated fallbacks for brevity in this tool call
-        ];
+    // Group skills by category from static data
+    const displayCategories = Object.keys(skillsData).map(cat => ({
+        title: cat,
+        skills: skillsData[cat].map(skill => ({
+            name: skill,
+            icon: getIcon(skill)
+        }))
+    }));
 
     return (
         <section id="skills" className="skills-section-v3">

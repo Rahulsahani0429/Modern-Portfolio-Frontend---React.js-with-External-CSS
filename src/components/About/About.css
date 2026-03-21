@@ -109,7 +109,33 @@
         gap: 4rem;
     }
 
+    .about-info, .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+    }
+
+    .contact-form-wrapper {
+        width: 100%;
+        max-width: 500px; /* prevent it from being way too wide if 100% */
+    }
+
     .social-footer {
         justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-wrapper {
+        padding: 1.5rem;
+    }
+    .about-contact-section {
+        padding: 60px 0;
     }
 }

@@ -133,14 +133,22 @@
 
 @media (max-width: 480px) {
     .exp-timeline-item {
-        margin-left: 40px;
-        padding: 1.2rem;
+        margin-left: 30px;
+        padding: 1rem;
     }
 
     .exp-timeline-dot {
-        left: -28px;
+        left: -22px;
         width: 12px;
         height: 12px;
         top: 25px;
+    }
+
+    .exp-timeline-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .exp-timeline-item h4 {
+        font-size: 0.95rem;
     }
 }

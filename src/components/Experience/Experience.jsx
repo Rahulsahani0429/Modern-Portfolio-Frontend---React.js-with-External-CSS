@@ -1,15 +1,16 @@
 import React from 'react';
 import './Experience.css';
+import { experienceData } from '../../data/portfolioData';
 
-const Experience = ({ experience }) => {
+const Experience = () => {
     return (
         <section id="experience" className="experience-section">
             <div className="experience-overlay"></div>
             <div className="container experience-relative">
                 <h2 className="section-title">Experience</h2>
                 <div className="exp-timeline">
-                    {experience && experience.length > 0 ? (
-                        experience.map((exp, index) => (
+                    {experienceData && experienceData.length > 0 ? (
+                        experienceData.map((exp, index) => (
                             <div key={exp._id || index} className="exp-timeline-item glass-card">
                                 <div className="exp-timeline-dot"></div>
                                 <div className="exp-timeline-date">{exp.duration}</div>
