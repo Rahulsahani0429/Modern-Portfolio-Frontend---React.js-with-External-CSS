@@ -250,3 +250,113 @@
         min-width: 120px;
     }
 }
+
+/* Project Status Box */
+.project-status-box {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(17, 17, 38, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(124, 77, 255, 0.1);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* Status Badge Colors & Glows */
+.status-badge.completed {
+    background: rgba(46, 213, 115, 0.15);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.3);
+    box-shadow: 0 0 10px rgba(46, 213, 115, 0.2);
+}
+
+.status-badge.in-progress, .status-badge.currently-working {
+    background: rgba(255, 165, 2, 0.15);
+    color: #ffa502;
+    border: 1px solid rgba(255, 165, 2, 0.3);
+    box-shadow: 0 0 10px rgba(255, 165, 2, 0.2);
+}
+
+.status-badge.under-development {
+    background: rgba(156, 136, 255, 0.15);
+    color: #9c88ff;
+    border: 1px solid rgba(156, 136, 255, 0.3);
+    box-shadow: 0 0 10px rgba(156, 136, 255, 0.2);
+}
+
+.status-badge.coming-soon {
+    background: rgba(30, 144, 255, 0.15);
+    color: #1e90ff;
+    border: 1px solid rgba(30, 144, 255, 0.3);
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.2);
+}
+
+.status-badge.live {
+    background: rgba(46, 213, 115, 0.2);
+    color: #2ed573;
+    border: 1px solid rgba(46, 213, 115, 0.5);
+    box-shadow: 0 0 15px rgba(46, 213, 115, 0.4);
+}
+
+.status-badge.major-update-ongoing {
+    background: rgba(255, 71, 87, 0.15);
+    color: #ff4757;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    box-shadow: 0 0 10px rgba(255, 71, 87, 0.2);
+}
+
+.status-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7c4dff, #00d2ff);
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+}
+
+.progress-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    align-self: flex-end;
+}
+
+.disabled-link {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-secondary) !important;
+}
+
+.disabled-link i {
+    color: inherit;
+}

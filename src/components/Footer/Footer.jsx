@@ -26,7 +26,7 @@ const Footer = () => {
                             Jaipur, Rajasthan, India<br />
                             <a href="mailto:rahulcse3212@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }} className="footer-email-link">rahulcse3212@gmail.com</a>
                         </p>
-                        <a href="/RahulSahani.pdf" target="_blank" rel="noopener noreferrer" className="footer-resume-link" download>
+                        <a href="/projects/RahulKumarSahaniCV.pdf" target="_blank" rel="noopener noreferrer" className="footer-resume-link" download>
                             DOWNLOAD MY RESUME / CV
                         </a>
                     </div>

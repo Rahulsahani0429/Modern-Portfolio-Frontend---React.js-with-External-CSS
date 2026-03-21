@@ -27,6 +27,27 @@ const Projects = () => {
                             <div className="project-info-v3">
                                 <h3 className="project-title-v3">{project.title}</h3>
                                 <p className="project-desc-v3">{project.description}</p>
+                                {project.showStatus && (
+                                    <div className="project-status-box">
+                                        <span className={`status-badge ${project.projectStatus.toLowerCase().replace(/\s+/g, "-")}`}>
+                                            {project.projectStatus}
+                                        </span>
+                                        {project.statusText && (
+                                            <p className="status-text">{project.statusText}</p>
+                                        )}
+                                        {typeof project.progress === "number" && (
+                                            <div className="progress-container">
+                                                <div className="progress-bar">
+                                                    <div
+                                                        className="progress-fill"
+                                                        style={{ width: `${project.progress}%` }}
+                                                    ></div>
+                                                </div>
+                                                <span className="progress-text">{project.progress}% Completed</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
                                 <div className="project-tags-v3">
                                     {(project.techStack || []).map((tech, index) => (
                                         <span key={index} className="tech-tag-v3">{tech}</span>
@@ -38,11 +59,15 @@ const Projects = () => {
                                             <i className="fab fa-github"></i> GitHub
                                         </a>
                                     )}
-                                    {project.liveLink && (
+                                    {(!project.liveLink && (project.projectStatus === "Coming Soon" || project.projectStatus === "Under Development" || project.projectStatus === "Currently Working" || project.projectStatus === "In Progress")) ? (
+                                        <button disabled className="btn-project-link primary disabled-link">
+                                            <i className="fas fa-clock"></i> Coming Soon
+                                        </button>
+                                    ) : project.liveLink ? (
                                         <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="btn-project-link primary">
                                             <i className="fas fa-external-link-alt"></i> Live Demo
                                         </a>
-                                    )}
+                                    ) : null}
                                 </div>
                             </div>
                         </div>

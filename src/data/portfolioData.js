@@ -13,11 +13,15 @@ export const projectsData = [
   {
     _id: "1",
     title: "Portfolio Website",
-    description: "A modern responsive portfolio website to showcase skills, projects, and experience.",
-    techStack: ["React", "CSS", "Html", "Bootstrap", "JavaScript"],
+    description: "A modern, responsive portfolio website built using React to showcase my projects, technical skills, and professional experience.",
+    techStack: ["React", "CSS", "Html", "JavaScript", "EmailJS"],
     image: rahulImg,
-    liveLink: "https://your-portfolio-live-link.com",
-    githubLink: "https://github.com/Rahulsahani0429"
+    liveLink: "https://modern-portfolio-frontend-react-js-xi.vercel.app/",
+    githubLink: "https://github.com/Rahulsahani0429/Modern-Portfolio-Frontend---React.js-with-External-CSS",
+    projectStatus: "Completed",
+    statusText: "Live and fully functional",
+    progress: 100,
+    showStatus: true
   },
   {
     _id: "2",
@@ -26,7 +30,11 @@ export const projectsData = [
     techStack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     image: flipkartImg,
     liveLink: "https://your-live-demo-ecommerce.com",
-    githubLink: "https://github.com/Rahulsahani0429/ecommerce"
+    githubLink: "https://github.com/Rahulsahani0429",
+    projectStatus: "Under Development",
+    statusText: "Frontend completed • Backend and payment integration in progress",
+    progress: 90,
+    showStatus: true
   },
   {
     _id: "3",
@@ -35,7 +43,11 @@ export const projectsData = [
     techStack: ["React", "Node.js", "Express", "MongoDB"],
     image: doctorImg,
     liveLink: "https://your-live-demo-doctor.com",
-    githubLink: "https://github.com/Rahulsahani0429/doctor-appointment"
+    githubLink: "https://github.com/Rahulsahani0429",
+    projectStatus: "Under Development",
+    statusText: "Improving appointment flow and admin features",
+    progress: 70,
+    showStatus: true
   }
 ];
 
