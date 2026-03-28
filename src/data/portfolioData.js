@@ -64,7 +64,7 @@ export const experienceData = [
     _id: "2",
     role: "Oracle Foundation Associate",
     company: "Oracle Cloud",
-    duration: "Aug 2024 - Sep 2024",
+    duration: "Jan 2025 - Apr 2025",
     description: "Learned cloud computing fundamentals including IaaS, PaaS, SaaS models and core cloud architecture concepts.",
     isInternship: false
   },
@@ -72,7 +72,7 @@ export const experienceData = [
     _id: "3",
     role: "Full Stack Web Developer Intern",
     company: "CodeSoft",
-    duration: "Apr 2024 - Oct 2024",
+    duration: "Apr 2025 - Oct 2025",
     description: "Worked on front-end development using HTML, CSS, JavaScript, and React along with backend development using Node.js and Express. Built responsive applications and integrated REST APIs.",
     isInternship: true
   }
