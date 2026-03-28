@@ -116,7 +116,7 @@ const Navbar = () => {
                     <div className="nav-right">
                         {/* Desktop-only Download CV (hidden on mobile via CSS) */}
                         <a
-                            href="/projects/RahulKumarSahaniCV.pdf"
+                            href="/projects/Rahul_sahani_cv.pdf"
                             className="btn-outline download-cv desktop-cv"
                             download
                             aria-label="Download CV"

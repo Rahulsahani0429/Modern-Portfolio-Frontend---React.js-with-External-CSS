@@ -129,11 +129,11 @@ const About = ({ profile }) => {
                     <div className="contact-details">
                         <div className="contact-item">
                             <i className="fas fa-envelope"></i>
-                            <span>{profile?.email || "rahulcse3212@gmail.com"}</span>
+                            <span>{profile?.email || "rahulsahani33438@gmail.com"}</span>
                         </div>
                         <div className="contact-item">
                             <i className="fas fa-phone-alt"></i>
-                            <span>+91 8828929033</span>
+                            <span>+91 7779955485</span>
                         </div>
                         <div className="contact-item">
                             <i className="fas fa-map-marker-alt"></i>
