@@ -29,11 +29,11 @@ export const projectsData = [
     description: "A full-stack MERN e-commerce application with authentication, product browsing, cart system, order management.",
     techStack: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     image: flipkartImg,
-    liveLink: "https://your-live-demo-ecommerce.com",
+    liveLink: "https://flipkart-clone-frontend-react-exter.vercel.app",
     githubLink: "https://github.com/Rahulsahani0429",
     projectStatus: "Under Development",
     statusText: "Frontend completed • Backend and payment integration in progress",
-    progress: 90,
+    progress: 80,
     showStatus: true
   },
   {
@@ -42,7 +42,7 @@ export const projectsData = [
     description: "A MERN stack doctor appointment booking system with authentication and appointment scheduling features.",
     techStack: ["React", "Node.js", "Express", "MongoDB"],
     image: doctorImg,
-    liveLink: "https://your-live-demo-doctor.com",
+    // liveLink: "https://your-live-demo-doctor.com",
     githubLink: "https://github.com/Rahulsahani0429",
     projectStatus: "Under Development",
     statusText: "Improving appointment flow and admin features",
