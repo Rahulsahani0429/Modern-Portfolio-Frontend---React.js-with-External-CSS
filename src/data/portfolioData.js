@@ -90,7 +90,7 @@ export const educationData = [
 
 export const profileData = {
   name: "Rahul Sahani",
-  email: "rahulcse3212@gmail.com",
+  email: "rahulsahani33438@gmail.com",
   phone: "+91 8828929033",
   location: "India",
   aboutMe: "I am a passionate **MERN Stack Developer and Prompt Engineer** with experience building responsive and scalable web applications. I specialize in developing full-stack solutions using **MongoDB, Express.js, React.js, and Node.js**, along with working knowledge of **MySQL** for relational database management.\n\nDuring my **Full Stack Web Development Internship at CodeSoft**, I worked on building responsive frontend modules and developing backend APIs using modern JavaScript technologies. This experience helped me strengthen my skills in creating efficient and user-friendly applications.\n\nI have also completed coursework from **MongoDB University**, gaining hands-on experience in database management, data modeling, and backend optimization.\n\nI enjoy solving real-world problems, learning new technologies, and building modern applications that deliver scalable and meaningful user experiences.",
